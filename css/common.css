@@ -1,0 +1,39 @@
+/*public-header*/
+.public-header{
+	width:100%;
+	min-width:492px;
+	line-height: 46px;
+	background-color:#f60;
+}
+
+/*container*/
+.container{
+	width:80%;
+	min-width:428px;
+	margin:0 auto;
+}
+
+/*musicbox*/
+.musicbox{
+	display:none;
+	position:fixed;
+	top:66px;
+	left:12px;
+	margin:auto;
+	width:272px;
+	height:302px;
+	background:#6f6f6f;
+	border-radius:10px;
+	box-shadow:0 0 4px 0 #000 inset;
+}
+/*claerfloat*/
+.claer{
+	zoom:1;
+}
+.clear:after{
+	visibility: hidden;
+	content:'';
+	display:block;
+	height:0;
+	clear:both;
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content='text/html' charset="UTF-8">
+  	<meta name="Generator" content="Sublime text3®">
+  	<meta name="Author" content="">
+  	<meta name="Keywords" content="">
+  	<meta name="Description" content="">
+  	<title>请求本地术服务器数据并加载</title>
+  	<style type="text/css">
+  		body, div, p, span, i{margin:0;padding:0;}
+		body{background-color:rgba(116,202,170,0.4);}
+		img{display:block;border:none;}
+		a{text-decoration:none;}
+		.seabox{
+			z-index:100;
+			position:fixed;
+			top:0;right:0;
+			left:0;
+			height:42px;
+			background-color:rgba(28,40,128,0.6);
+		}
+		.search{
+			margin:12px auto;
+			width:222px;
+		}
+		.container{
+			position:relative;
+			width:1034px;
+			margin:auto;
+			margin-top:44px;
+		}
+		.container .mvinfo{
+			position:absolute;
+			top:0;left:0;
+			width:200px;
+			height:274px;
+			transition:top, left;
+			transition-duration:2s;
+		}
+		.container .mvinfo .news{
+			width:200px;
+			margin-top:4px;
+			box-shadow:0 0 10px 2px #2b9f7e inset;
+			border-radius:4px;
+		}
+		.mvinfo .news .name{
+			width:90px;
+			height:25px;
+			margin-left:4px;
+			overflow:hidden;
+		}
+		.mvinfo .news .name, .mvinfo .news input{
+			display:inline-block;
+			font-size:15px;
+			/*margin-right:47px;*/
+			line-height:28px;
+		}
+		.mvinfo .news input{
+			float:right;
+			margin-right:6px;
+			border:none;
+			color:#f60;
+			background-color:transparent;
+			cursor:pointer;
+		}
+  	</style>
+</head>
+<body>
+	<div class='seabox'>
+		<form class='search' action='' method='get'>
+			<input class='tvalue' type='text' placeholder='输入要查找的电影'>
+			<input type='button' value='确定' onclick="searchMv()">
+		</form>
+	</div>
+	<div class="container">
+ 	</div>
+	<script type="text/javascript">
+		var str;
+		//从服务器接收数据
+		getData();
+		function getData(){
+			var xhr,data;
+			if (window.XMLHttpRequest){
+				xhr = new XMLHttpRequest();
+			}else{
+				xhr = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+			xhr.onreadystatechange = function (){
+				if (xhr.readyState === 4 && xhr.status === 200){
+					data = eval(xhr.responseText);
+					dealData(data);
+					return data;
+				}
+			}
+			xhr.open('GET', './dbmovie.json',true);
+			xhr.send(null);
+			//return 
+		}
+		//处理数据
+		function dealData(data){
+			var storage = [];
+			data.forEach(function(item){
+				storage.push({
+					title:item.title,
+					alink:item.alt,
+					editor:item.directors[0].name,
+					genres:item.genres,
+					year:item.year,
+					pic:item.images.small,
+					rating:item.rating.average,
+					oname:item.original_title
+				});
+			});
+			create(storage);
+			str = storage;
+			return storage;
+		}
+		
+		//创建dom
+		function create(dldata){
+			var oCn = document.body.querySelector('.container'),
+			oCnwd = oCn.offsetWidth;
+		/*	//for循环方法
+			/*for (var i = 0;dldata[i++];){//数组长度内部运行机制
+				var oDiv = document.createElement('div');
+				oDiv.className = 'mvinfo';
+				oDiv.innerHTML = `
+						<a href="${dldata[i].alink}" target="_blank">
+							<img class="pic" src="${dldata[i].pic}" width="200" height="240">
+						</a>
+						<form class='news' action='' method='get'>
+							<p class='name'>${dldata[i].title}</p>
+							<input type='submit' value="详情页">
+						</form>
+				`;
+				oCn.appendChild(oDiv);
+			}*/
+			//foreach方法
+			var width = 200, space = 6,
+			sum = width + space,
+			th = ~~(oCnwd/sum);
+			var aleft = [], altop = [];
+			for (var i = 0;i < th;i++){
+				altop.push(0);
+				aleft.push(i * sum);
+			}
+			var lth = altop.length;
+			dldata.forEach(function(item,index){
+				var oDiv = document.createElement('div');
+				//minx = altop.indexOf(Math.min(...altop));//高度有小到大排列;
+				minx = altop.indexOf(altop[lth - 1]);//常规依次排列;
+				oDiv.className = 'mvinfo';
+				oDiv.innerHTML = `
+						<a href="${item.alink}" target="_blank">
+							<img class="pic" src="${item.pic}" width="200" height="240">
+						</a>
+						<form class='news' action='' method='get'>
+							<p class='name'>${item.title}</p>
+							<input type='submit' value="详情页">
+						</form>
+				`;
+				oDiv.style.left = aleft[minx] + 'px';
+				oDiv.style.top = altop[minx] + 'px';
+				altop[minx] += 274 + 2 * space;
+				//console.log(oDiv.offsetHeight);
+				oCn.appendChild(oDiv);
+			});
+		}
+		//查找电影
+		function searchMv(){
+			var otve = document.body.querySelector('.tvalue').value,
+			opp = document.body.querySelectorAll('.mvinfo'),
+			name,rname,ofht,
+			ofht = otve.slice(0,2);
+			str.forEach(function(item,index){
+				name = item.title.slice(0,2);
+				rname = item.oname,
+				num = index + 1,jum = index - 1;
+				if (ofht == name || otve == rname){
+					//alert('找到啦');
+					var scrtop = opp[index].offsetTop;
+					window.scrollTo(0, scrtop);
+				}else{
+					(index === num || index === jum) && (alert('没找到你想要的电影啦!'));
+				}
+			});
+			
+		}
+	</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 function getData(){
 	var sData;
 	$.ajax({
-            url: "https://mobilecdn.kugou.com/api/v3/search/song",
+            url: "http://mobilecdn.kugou.com/api/v3/search/song",
             type:"GET",
             dataType: "jsonp",
             jsonp: "callback",
@@ -27,7 +27,7 @@ function getData(){
 function mtnDAta(da){
 	var i=0,np = document.getElementsByClassName('micname');
 	da.forEach(function(item){
-		var url = `https://www.kugou.com/yy/index.php?r=play/getdata&hash=${item.hash}`;
+		var url = `http://www.kugou.com/yy/index.php?r=play/getdata&hash=${item.hash}`;
 		$.ajax({
 				url: url,
 		        type:"GET",

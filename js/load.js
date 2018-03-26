@@ -2,7 +2,7 @@
 playde()
 function playde(){
 	var aup = ele.byclass('msplay',1);
-	aup.src="http://fs.w.kugou.com/201803241734/0a84ab2caafe5311b66f3de22787d475/G012/M09/14/0B/TA0DAFUPLpyAMab_AERZRVUtil8172.mp3";
+	aup.src="https://fs.w.kugou.com/201803241734/0a84ab2caafe5311b66f3de22787d475/G012/M09/14/0B/TA0DAFUPLpyAMab_AERZRVUtil8172.mp3";
 	aup.play();
 }
 //-------音乐播放

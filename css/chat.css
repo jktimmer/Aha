@@ -1,0 +1,101 @@
+/*chatbar*/
+.chatbar{
+	position:relative;
+	width:350px;
+	padding:10px 10px 0 10px;
+	margin:20px 10px 10px;
+	border-radius:10px;
+}
+.chatbar .chatscreen{
+	height:260px;
+	padding:10px;
+	overflow-x:hidden;
+}
+
+.chatbar .chatscreen .rbtsd, .chatbar .chatscreen .sendp{
+	width:100%;
+	float:right;
+	margin:10px 0;
+}
+.chatbar .chatscreen .rbtsd{
+	float:left;
+}
+.chatscreen .rbtsd img{
+	height:24px;
+	float:left;
+	margin-right:6px;
+}
+.chatscreen .rbtsd .trap{
+	float:left;
+	width:80%;
+}
+.chatscreen .rbtsd .trap p, .chatscreen .sendp .trap p{
+	position:relative;
+	display:inline-block;
+	padding:2px 4px;
+	background-color:#2ed223;
+	border-radius:4px;
+	word-break:break-all;
+}
+.chatscreen .rbtsd .trap p:before{
+	position:absolute;
+	top:7px;left:-10px;
+	display:block;
+	content:'';
+	height:0;
+	border:4px solid transparent;
+	border-right:7px solid #2ed223;
+}
+.chatscreen .sendp img{
+	height:24px;
+	float:right;
+	margin-left:8px;
+}
+.chatscreen .sendp .trap{
+	float:right;
+	width:80%;
+}
+.chatscreen .sendp .trap p{
+	float:right;
+}
+.chatscreen .sendp .trap p:after{
+	position:absolute;
+	top:7px;right:-10px;
+	display:block;
+	content:'';
+	height:0;
+	border:4px solid transparent;
+	border-left:7px solid #2ed223;
+}
+.chatbar .tols{
+	height:26px;
+	padding:2px 4px 0 4px;
+	background:#fff;
+}
+.chatbar .tols input{
+	display:block;
+	height:25px;
+}
+.chatbar .tols .otwd{
+	width:80%;
+	float:left;
+	border:none;
+	border-bottom:1px solid #2ed223;
+	text-indent:4px;
+}
+.chatbar .tols .btn{
+	float:right;
+	padding:0 2px;
+	border:none;
+	background-color:#10ab06;
+	border-radius:2px;
+	box-shadow:0 0 2px 0 #fff inset;
+}
+/*更改音乐盒位置*/
+.mainbox{
+	position:relative;
+	top:0;left:0;
+	display:block;
+	margin:0 0 10px 0;
+
+}

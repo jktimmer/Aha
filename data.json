@@ -1,0 +1,25 @@
+[{
+		"title":"第一尝试",
+		"img":"images/psdlianxi.PNG",
+		"href":"d",
+		"content":"通过跟着视频了解相关标签的作用,然后在网上下载psd模板,开始制作静态页面.利用Photoshop中的工具进行图像的加工,在结合html,css初步完成了页面的布局,再在各浏览器中打开调整页面兼容布局,再ie8之后的浏览器版本的兼容性对css基本友好,但是对某些css3样式却不太友好,还好现在的搜索引擎很强大,帮助了我不少.",
+		"date":"2018.3.27",
+		"stylecss":"<a href='' style='float:left'>点击我</a>"
+		
+	},
+	{
+		"title":"小型音乐播放器",
+		"img":"images/player.png",
+		"href":"d",
+		"content":"利用jq的ajax跨域实现对网络音乐api接口的使用,这里的搜索引擎也帮助了我少,帮助了我怎么解决跨域的问题,以及如何请求数据,最后通过渲染页面做成一个微型播放器,实现搜歌功能.",
+		"date":"2018.3.27",
+		"stylecss":"<p style='margin:10px 0;float:left'>点击左上角音乐图标</p>"
+	},
+	{
+		"title":"聊天机器人",
+		"img":"images/chatrobot.png",
+		"href":"d",
+		"content":"先利用html,css,js等进行页面的渲染,然后每次输入都新生成一个标签,每次输入进行请求,解析请求的数据,把处理后的数据放入到标签内,再生成标签,这里是用的api是图灵机器人的免费api.",
+		"date":"2018.3.27",
+		"stylecss":"<div class='chatbar' style='float:left'><div class='chatscreen clear'><div class='rbtsd'><img src='images/robot.png'><div class='trap'><p>你好啊</p></div></div><div class='sendp'><img src='icons/pandao.ico'><div class='trap'><p>你好啊</p></div></div></div><div class='tols clear'><input class='otwd' type='text' placeholder='说点什么吧'><input class='btn' type='button' value='发送' onclick='rtData()'></div></div>"
+}]

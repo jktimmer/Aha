@@ -1,3 +1,6 @@
+
+
+//请求数据函数
 function getData(){
 	var sData;
 	$.ajax({

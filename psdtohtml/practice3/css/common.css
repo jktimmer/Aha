@@ -1,0 +1,71 @@
+#bigby{
+	min-width:1012px;
+	overflow-x:hidden;
+	} 
+
+.index-header{
+	width:100%;
+	height:350px;
+	}
+
+.index-container{
+	width:1012px;
+	margin:0 auto;
+	text-align:center;
+	}
+/******index-body******/
+     /****main about me公共样式****/
+.content-title{
+	margin:0 auto;
+	}
+.index-container .content-title:after{
+	display:block;
+	content:'';
+	margin:-12px auto;
+	width:794px;
+	height:52px;
+	border:1px solid #38a9c5;
+	z-index:-1;
+	}
+.index-container .content-title span{
+	width:144px;
+	padding:0 10px;
+	font-size:24px;
+	color:#51b4cc;
+	background:#fff;
+	}
+ .index-container .stage{
+	width:586px;
+	margin:0 auto;
+	padding:0 50px 0 20px;
+	text-align:left;
+	font-size:13px;
+	line-height:24px;
+	background:#fff;
+	}
+/*body-colmn-three 公共样式*/
+.title-content .title-note{
+	position:relative;
+	height:22%;
+	margin:0 auto;
+	color:#fff;
+	font-size:26px;
+	}
+.title-content .title-note:after{
+	position:absolute;
+	content:'';
+	width:850px;
+	height:62px;
+	left:-14px;
+	right:0;
+	margin:6px auto;
+	background-image:url('../images/title-border.png');
+	}
+.title-content .bor-bar{
+	width:10%;
+	margin:4px auto;
+	}
+.index-footer{
+	width:1360px;
+	height:112px;
+	}

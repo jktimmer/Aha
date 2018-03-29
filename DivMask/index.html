@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv ="Content-Type" content ="tetx/html" charset ="utf-8">
+	<title>js遮罩层</title>
+	<link rel ='shortcut icon' href ="images/pandao.ico">
+	<link rel ='sheetstyle' type ='text/css' href =''>
+	<style rel ='sheetstyle' type ='text/css'>
+		*{margin:0;padding:0;}
+		a{display:block;text-decoration:none;color:#000}
+		body{background-color:#b7b7a8;}
+		.posn{
+			position:absolute;
+			top:0;right:0;
+			bottom:0;left:0;
+			z-index:10;
+			width:502px;
+			height:248px;
+			margin:auto;
+			padding-left:5px;
+			box-shadow:0 0 4px #f60 inset;
+		}
+		.posn .rpo{
+			position:relative;
+			float:left;
+			width:158px;
+			height:112px;
+			margin:8px 4px 0 4px;
+			transform-style:preserve-3d;
+			transform:rotateX(0deg) rotateY(0deg);
+			transition:transform 2s;
+		}
+		 .posn .rpo:hover{
+			transform:rotateX(0deg) rotateY(-90deg);
+		} 
+		.posn .rpo .bg{
+			/* display:none; */
+			position:absolute;
+			top:0;left:0; 
+			z-index:50;
+			width:100%;
+			height:100%;
+			opacity:0.8;
+			filter:Alpha(opacity = 80);
+			background:url('images/bg.png');
+			transform:rotateY(0deg);
+			transition:all 1s ease-in-out;
+		}
+		.posn .rpo:hover .bg{
+			opacity:0;
+			filter:Alpha(opacity = 0);
+		}
+		.posn .rpo .dg{
+			position:absolute;
+			top:0;left:0; 
+			z-index:100;
+			display:inline-block;
+			width:100%;
+			height:100%;
+			text-align:center;
+			line-height:50px;
+			background:rgba(0,0,0,0.4);
+			cursor:pointer;
+			transform:rotateY(90deg);
+			transition:all 1s ease-in-out;
+		}
+		.posn .rpo:hover .dg{
+			transform:rotateY(90deg);
+			
+		}
+		/*****遮罩层****/
+		.mask{
+			display:none; 
+			position:absolute;
+			top:0;right:0;
+			bottom:0;left:0;
+			z-index:10;
+			width:252px;
+			height:326px;
+			margin:auto;
+			box-shadow:0 0 60px rgba(0,0,0,1);
+			background:rgba(255,255,255,0.5);
+			border-radius:10px;
+		}
+		.mask .rtop:before{
+			position:absolute;
+			top:0;right:0;
+			bottom:0;left:0;
+			display:block;
+			content:'';
+			width:5px;
+			height:20px;
+			margin:auto;
+			background:#fff;
+			box-shadow:0 0 2px #fff;
+			transform:rotate(44deg);
+		}
+		.mask .rtop{
+			position:relative;
+			float:right;
+			display:block;
+			width:30px;
+			height:30px;
+			margin:-15px;
+			border-radius:20px;
+			box-shadow:0 0 10px rgba(0,0,0,0.8);
+			background:rgba(255,0,0,1.5);
+		}
+		.mask .rtop:after{
+			position:absolute;
+			top:0;right:0;
+			bottom:0;left:0;
+			display:block;
+			content:'';
+			width:5px;
+			height:20px;
+			margin:auto;
+			background:#fff;
+			box-shadow:0 0 2px #fff;
+			transform:rotate(-44deg);
+		}
+		.mask .ndv{
+			position:relative;
+			width:98%;
+			height:98%;
+			margin:1.3% auto;
+			background:rgba(0,0,255,0.3);
+			border-radius:7px;
+			box-shadow:0 0 10px #f60 inset;
+			/* text-align:center; */
+		}
+		.mask .ndv .np{
+			position:absolute;
+			top:2%;right:0;
+			bottom:0;left:0;
+			display:block;
+			margin:auto;
+			padding:0 8px;
+			cursor:default;
+		}
+		.ndv .np i{
+			display:block;
+			text-align:center;
+			margin:10px auto;
+			font-size:20px;
+			font-weight:bold;
+		}
+		.ndv .np span{
+			position:absolute;
+			bottom:12%;
+			right:0;left:0;
+			display:block;
+			margin:auto;
+			padding:0 12px;
+			text-align:center;
+			color:#fff;
+			font-style:italic;
+			text-shadow:0 0 2px #000;
+		}
+		.mask .clk{
+			position:absolute;
+			right:0;left:0;
+			display:block;
+			width:30%;
+			height:28px;
+			margin:-10% auto;
+			background:rgba(95,200,100,1);
+			border-radius:4px;
+			box-shadow:0 0 2px #fff;
+			text-align:center;
+			line-height:28px;
+		}
+	</style>
+</head>
+<body>
+	<script type ='text/javascript'>
+	 var browser = navigator.appName, by = document.body;
+	 if (browser.indexOf('Microsoft') >= 0){
+		alert('暂不支持ie10');
+		by.style.display = 'none';
+	 }else{}
+	</script>
+	<div class ='posn' id ='psn'>
+		<div class ='rpo'>
+			<div class ='bg'></div>	
+			<a class ='dg' href ='javascript:dsapr();'>希望<br />Hopenss</a>
+		</div>
+		<div class ='rpo'>							  
+			<div class ='bg'></div>					  
+			<a class ='dg' href ='javascript:dsapr();'>努力<br />Hard</a>
+		</div>		     							  
+		<div class ='rpo'>							  
+			<div class ='bg'></div>					  
+			<a class ='dg' href ='javascript:dsapr();'>运气<br />Lucky</a>
+		</div>		   								  
+		<div class ='rpo'>							  
+			<div class ='bg'></div>					  
+			<a class ='dg' href ='javascript:dsapr();'>现实<br />Real</a>
+		</div>		    							  
+		<div class ='rpo'>							  
+			<div class ='bg'></div>					  
+			<a class ='dg' href ='javascript:dsapr();'>深究<br />Aspire</a>
+		</div>		    
+		<div class ='rpo'>
+			<div class ='bg'></div>
+			<a class ='dg' href ='javascript:dsapr();'>超脱<br />Outstanding</a>
+		</div>
+	</div>
+	<div class ='mask' id ='msk'>
+		<a class ='rtop' id ='endt' href ='javascript:end();'></a>
+		<div class ='ndv'>
+			<p class ='np'><i>希望</i>&emsp;&emsp;当我们错过太阳的时候，不要心灰意冷，我们要守住希望，因为还有月亮和星星；<br />&emsp;&emsp;当我们又错过月亮和星星时，不要自暴自弃，我们要看到希望，因为明天还有太阳；<br />&emsp;&emsp;当我们什么都错过的时候，也不能放弃希望，因为生命本身就是一种希望！
+			<span>Hope is a waking dream.</span>
+			</p>
+			<p class ='np'><i>努力</i>&emsp;&emsp;时光的变迁，生命的斑斓。只要我们足够努力的向目标前进，命运就会有所改变，生命就会更加绚丽繁华。不让时光线流水一样，流逝过，没有任何改变。
+			<span>It conquers all.</span>
+			</p>
+			<p class ='np'><i>运气</i>&emsp;&emsp;在不幸中，有用的朋友更为必要；在幸运中，高尚的朋友更为必要。在不幸中，寻找朋友出于必需；在幸运中，寻找朋友出于高尚。
+			<span>By doing we learn.</span>
+			</p>
+			<p class ='np'><i>现实</i>&emsp;&emsp;生活，就是面对现实微笑，就是越过障碍注视未来；生活，就是用心灵之剪，在人生之路上裁出叶绿的枝头；生活，就是面对困惑或黑暗时，灵魂深处燃起豆大却明亮且微笑的灯展。
+			<span>Time is money.</span>
+			</p>
+			<p class ='np'><i>深究</i>&emsp;&emsp;梦想无论怎样模糊，总潜伏在我们心底，使我们的心境永远得不到宁静，直到这些梦想成为事实才止；像种子在地下一样，一定要萌芽滋长，伸出地面来，寻找阳光。
+			<span>Go for it! Just do it！</span>
+			</p>
+			<p class ='np'><i>超脱</i>&emsp;&emsp;每个伟大的人物都有一种能使事物回还的力量，因为他，整个历史再度被置于天平上，而成千上万运去的隐情和秘密都从它们藏匿的地方匍匐爬出投到它的光辉之下。
+			<span>Every tragedy makes heroes of common people.</span>
+			</p>
+		</div>
+		<a class ='clk' href ='javascript:;'>It`s ok</a>
+	</div>
+	<script type ='text/javascript'>
+		var oPn =document.getElementById('psn');
+		var oRp =document.getElementsByClassName('rpo');
+		var oBg =document.getElementsByClassName('bg');
+		var oDg =document.getElementsByClassName('dg');
+		var oMk =document.getElementById('msk');
+		var oEd =document.getElementById('endt');
+		var oNp =document.getElementsByClassName('np');
+		/*----图片位置-----*/
+		bgson();
+		function bgson(){
+			var oWh = 160;
+			for (var i =0,len =oBg.length;i < len;i++){
+				(i < (len / 2)) ? (oBg[i].style.backgroundPosition = i * -oWh + 'px 0') : (oBg[i].style.backgroundPosition = (i-len / 2) * -oWh + 'px -114px'); 
+			}
+		}
+		/*******************/
+		function dsapr(){
+			oPn.style.display ='none';
+			oMk.style.display ='block';
+		}
+		function end(){
+			oPn.style.display ='block';
+			oMk.style.display ='none';
+		}
+		oPn.onclick =function (ev){
+			var et =ev.target || window.target;
+			for (var i =0,len =oDg.length;i < len;i++){
+				(et === oDg[i]) && dsp(i);
+			}
+		}
+		function dsp(i){
+			for (var x =0,len =oNp.length;x < len;x++){
+				if (x === i){
+					oNp[x].style.display ='block';
+				}
+				else{
+					oNp[x].style.display ='none';
+				}
+			}
+			
+		}
+	</script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 //开始播放
-playde()
+playde();
 function playde(){
 	var aup = ele.byclass('msplay',1);
-	aup.src="http://fs.w.kugou.com/201803241734/0a84ab2caafe5311b66f3de22787d475/G012/M09/14/0B/TA0DAFUPLpyAMab_AERZRVUtil8172.mp3";
+	aup.src="http://thirdparty.gtimg.com/C100002MOW3w0vbJHf.m4a?fromtag=38";
 	aup.play();
 }
 //-------音乐播放
@@ -81,11 +81,13 @@ function mv(xx,yy,wW,wH){
 	}else if(xx > wW){
 		xx = wW;
 	}
-	if (yy < 48){
-		yy = 48;
+	if (yy < 10){
+		yy = 10;
 	}else if(yy > wH){
 		yy = wH;
 	}
 	mx.style.left = xx + 'px';
 	mx.style.top = yy + 'px';
 }
+
+

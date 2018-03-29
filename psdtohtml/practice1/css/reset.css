@@ -1,0 +1,28 @@
+body, div, dl, dt, ul, ol, li,h1, h2, h3, h4, h5, h6, a, p, i, form,button, input, textarea {
+	margin:0;
+	padding:0;
+	font-family:Arial,'Times New Roman';
+	}
+ol, ul, li {
+	list-style-type:none;
+	}
+a {
+	text-decoration:none;
+	display:block;
+	color:#fff;
+	}
+img {
+	border:none;
+	display:block;
+	}
+.clearfloat{
+	zoom:1;
+	}
+.clearfloat:after {
+	display:block;
+	content:".";
+	height:0;
+	visibility:hidden;
+	clear:both;
+	}
+body{overflow-x:hidden;}

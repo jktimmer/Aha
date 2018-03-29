@@ -1,0 +1,29 @@
+.bigbox{
+	min-width:1050px;
+	overflow-x:hidden;
+	background:url("../images/bigboxbg.png");
+	}
+.pbulic-header{
+	 margin-top:76px;
+	 padding:14px;
+	}
+.public-container{
+	width:1024px;
+	margin:0px auto;
+	/*background-color:#ccc;*/
+	}
+.index-body{
+	margin-bottom:28px;
+	}
+.index-body-a .byatxt{
+	width:548px;
+	height:204px;
+	}
+	
+.index-body-b{
+	height:184px;
+	}
+.index-body-c{
+	width:960px;
+	height:110px;
+	}

@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content='text/html' charset="UTF-8">
+	<meta http-equiv="Content-Type" content='text/html' charset="UTF-8" width="device-width">
   	<meta name="Generator" content="Sublime text3®">
   	<meta name="Author" content="Jktime">
   	<meta name="Keywords" content="learning beginner">
   	<meta name="Description" content="study html css">
   	<title>这事儿不简单</title>
   	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="icons/pandao.ico">
+  	<link rel="stylesheet" type="text/css" href="css/reset.css">
   	<link rel="stylesheet" type="text/css" href="css/common.css">
   	<link rel="stylesheet" type="text/css" href="css/tylog.css">
+  	<link rel="stylesheet" type="text/css" href="css/move.css">
   	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-  	<script type="text/javascript" src="js/requestdata.js"></script>
-  	<style type="text/css">
-  		body, div, a, ul, ol, img, p, h1, h2, h3, h4, form, button, input, textarea, th, td{margin:0;padding:0;}
-		body{font-size:15px;background-color:#000;}
-		a{display:block;text-decoration:none;}
-		ul, ol{list-style-type:none;}
-		img{display:block;border:none;}
-  	</style>
+  	
 </head>
 <body>
 	<div class ="public-header clear">
@@ -34,32 +29,160 @@
 		</div>
 	</div>
 	<div class="musicbox">
-		<div class="closeme"><img src="images/close.png" width="15" height="15">关闭我</div>
+		<div class="closeme"><img src="images/little.png" width="15" height="15">关闭我</div>
 		<i class="movebar"></i>
 		<form class="searchbar">
 			<input class="schtxt" type="text" placeholder="Lovely Music">
 			<input class="schbt" type="button" value="查找" onclick="getTxt()">
 		</form>
 		<div class="content">
-			<p class="micname"><p>
-			<p class="micname"><p>
-			<p class="micname"><p>
-			<p class="micname"><p>
-			<p class="micname"><p>
-			<p class="micname"><p>
+			<p class="micname"></p>
+			<p class="micname"></p>
+			<p class="micname"></p>
+			<p class="micname"></p>
+			<p class="micname"></p>
+			<p class="micname"></p>
 			<audio controls="controls" class="msplay">
 				Your browser does not support the audio element.
 			</audio>
 		</div>
 	</div>
-	<div class ="public-body container" style="height:500px">
-	</div>
-	<div class ="public-footer">
-		<div class="container">
-			
+	<div class ="public-body container">
+		<div class="movebox">
+			<div class ="pon" id ="omu">
+			<div class ="imgbox" >
+				<img class ="dd" alt ="harder" width="100%" height="100%"  src ="http://photocdn.sohu.com/20160219/mp59593329_1455862859290_1_th.jpeg">
+				<img width="100%" height="100%" alt ="" src ="http://img001.hc360.cn/m6/M05/16/55/wKhQoVdJSnCEOnagAAAAAHbulfs501.jpg">
+				<img width="100%" height="100%" alt ="" src ="http://upload.365jilin.com/2016/0226/1456452492186.jpg">
+			</div>
+			<div class ="bar" id ="mbar">
+				<span class ="spbg">1</span>
+				<span>2</span>
+				<span>3</span>
+			</div>
+			<div class ="button" id ="contl">
+				<a class ="lft-bar" id ="right"></a>
+				<a class ="rgt-bar" id ="left"></a>
+			</div>
+			</div>
+		</div>
+		<div class="pages-list clear">
+			<div class="title clear">
+				<h2>最近动态</h2>
+				<span>你有多努力,就有多幸运</span>
+			</div>
+			<ul class="cont">
+				<!-- <li >
+					<h3><a href="" class="cont-title">第一次尝试</a></h3>
+					<div class="main-des clear">
+						<a class="hov"><img></a>
+						<p></p>
+					</div>
+					<div class="tag clear">
+						<i>2018.3.27</i>
+						<a href="learning.html">阅读原文>>></a>
+					</div>
+				</li> -->
+			</ul>
 		</div>
 	</div>
+	<div class ="public-footer">
+		<p class="container">Design by Chen, Welcom To Visit</p>
+	</div>
 	<script type="text/javascript" src="js/mine.js"></script>
+	<script type="text/javascript" src="js/requestdata.js"></script>
 	<script type="text/javascript" src="js/load.js"></script>
+	<script type="text/javascript">
+		var fther = document.querySelector('.cont');
+		getDa();
+		function getDa(){
+			var req = new XMLHttpRequest(),data;
+			req.onreadystatechange =function (){
+				if (req.readyState === 4 && req.status === 200){
+					data = JSON.parse(req.responseText);
+					dlta(data);
+				}
+			}
+			req.open('get','./data.json',true);
+			req.send(null);
+		}
+		function dlta(source){
+			var doc = document.createDocumentFragment();
+			source.forEach(function(item,index){
+				var elet = document.createElement('li');
+				elet.innerHTML =`<h3><a href="learning.html?p=${index}" class="cont-title">${item.title}</a></h3>
+					<div class="main-des clear">
+						<a class="hov"><img src=${item.img}></a>
+						<p>${item.content}</p>
+					</div>
+					<div class="tag clear">
+						<i>${item.date}</i>
+						<a href="learning.html?p=${index}">阅读原文>>></a>
+					</div>` ;
+					doc.appendChild(elet);
+			});
+			fther.appendChild(doc);
+		}
+		/*--------轮播图js-----*/
+		var mous =document.getElementById('omu'),lb =document.getElementById('left'),rb =document.getElementById('right'),ct =document.getElementById('contl'),sp =ele.fidcTg('mbar','span'),igs =mous.getElementsByTagName("img"),j =0,t,i,z;
+				//清除样式
+		function clear(z){
+			for (i =0;i < igs.length;i++){
+				if (i == z){
+					igs[i].className ="dd";
+					sp[i].className ="spbg";
+					igs[i].style.opacity ="1";
+				}
+				else{
+					igs[i].className ="";
+					igs[i].style.opacity ="0.4";
+					sp[i].className ="";
+				}
+			}
+		}
+		//设置时间循环
+		setime();
+		function setime(){
+			t =setInterval('add()',4000);
+		}
+		function add(){
+			if (j == 2){
+				j =-1;
+			}
+			j++;
+			clear(j);
+		}
+		function min(){
+			if (j == 0){
+				j =3;
+			}
+			j--;
+			clear(j);
+		}
+		mous.onmouseover =function (){
+			clearInterval(t);
+		}
+		mous.onmouseout = function (e){
+			setime();
+			(e.stopPropagation)?(e.stopPropagation()): e.cancelBubble = true;
+		}
+		lb.onmousedown = function (e){
+			add();
+			(e.stopPropagation)?(e.stopPropagation()): e.cancelBubble = true;
+		}
+		rb.onmousedown = function (e){
+			min();
+			(e.stopPropagation)?(e.stopPropagation()): e.cancelBubble = true;
+		}
+		for (var n =0;n < sp.length;n++){
+			(function (n){
+				sp[n].onmousedown =function (e){
+					clear(n);
+					j =n;
+					(e.stopPropagation)?(e.stopPropagation()): e.cancelBubble = true;
+				}
+			})(n);
+		}
+	</script>
 </body>
 </html>

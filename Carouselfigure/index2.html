@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv ="Content-Type" content ="text/html" charset ="utf-8">
+	<title> Position 轮播图</title>
+	<link rel ="shortcut icon" href ="icons/panda.ico">
+	<link rel ="styleshet" type ="text/css" src ="" />
+	<script type ="text/javascript" src =""></script>
+	<style rel ="stylesheet" type ="text/css">
+	body, div, a, img, span{margin:0;padding:0}
+	
+	body{
+		background-color:rgba(173,168,168,0.8);
+		min-width:500px;
+		overflow:hidden;
+	}
+	.pon{
+		position:absolute;
+		top:0;right:0;
+		bottom:0;left:0;
+		margin:auto;
+		width:500px;
+		height:354px;
+	}
+	.imgbox{
+		position:relative;
+		width:500px;
+		height:100%;
+		margin:0 auto;
+	}
+	.imgbox img{
+		position:absolute;
+		opacity:1;
+	}
+	.imgbox .dd{
+		opacity:1;
+		z-index:100;
+		transition:opacity 3s;
+	}
+	.pon .bar{
+		position:absolute;
+		right:0;left:0;
+		bottom:0;
+		width:172px;
+		height:8%;
+		margin:0 auto;
+		z-index:1000;
+	}
+	.pon .bar span{
+		display:block;
+		float:left;
+		width:30px;
+		height:20px;
+		margin:0 2px;
+		text-indent:10px;
+		line-height:20px;
+		border-radius:5px;
+		cursor:Default;
+		transition:background-color 2s;
+	}
+	.bar .spbg{
+		background-color:rgba(255,102,0,0.8);
+	}
+	.pon .button{
+		position:absolute;
+		top:0;right:0;
+		bottom:0;left:0;
+		width:500px;
+		height:50px;
+		margin:auto;
+	}
+	.pon .button a{
+		display:block;
+		width:30px;
+		height:50px;
+		background:rgba(12,12,12,0.2) url('images/button.png') no-repeat;
+	}
+	.pon .button .lft-bar{
+		float:left;
+		background-position:8px;
+	}
+	.pon .button .rgt-bar{float:right;
+		background-position:-58px;
+	}
+	</style>
+</head>
+<body>
+	<div class ="pon" id ="omu">
+		<div class ="imgbox" >
+			<img class ="dd" alt ="" src ="images/1.jpg">
+			<img alt ="" src ="images/2.jpg">
+			<img alt ="" src ="images/3.jpg">
+			<img alt ="" src ="images/4.jpg">
+			<img alt ="" src ="images/5.jpg">
+		</div>
+		<div class ="bar">
+			<span class ="spbg">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+		<div class ="button" id ="contl">
+			<a class ="lft-bar" id ="left"></a>
+			<a class ="rgt-bar" id ="right"></a>
+		</div>
+	</div>
+	<script type ="text/javascript">
+		var igs =document.getElementsByTagName("img");
+		var mous =document.getElementById('omu');
+		var lb =document.getElementById('left');
+		var rb =document.getElementById('right');
+		var ct =document.getElementById('contl');
+		var sp =document.getElementsByTagName('span');
+		var j =0,t,i,z;
+		//清除样式
+		function clear(z){
+			for (i =0;i < igs.length;i++){
+				if (i == z){
+					igs[i].className ="dd";
+					sp[i].className ="spbg";
+					igs[i].style.opacity ="1";
+				}
+				else{
+					igs[i].className ="";
+					igs[i].style.opacity ="0.4";
+					sp[i].className ="";
+				}
+			}
+		}
+		//设置时间循环
+		setime();
+		function setime(){
+			t =setInterval('add()',4000);
+		}
+		function add(){
+			if (j == 4){
+				j =-1;
+			}
+			j++;
+			clear(j);
+		}
+		function min(){
+			if (j == 0){
+				j =5;
+			}
+			j--;
+			clear(j);
+		}
+		mous.onmouseover =function (){
+			clearInterval(t);
+			ct.style ="z-index:1000";
+		}
+		mous.onmouseout = function (){
+			setime();
+			ct.style ="z-index:0";
+		}
+		lb.onmousedown = function (){
+			add();
+		}
+		rb.onmousedown = function (){
+			min();
+		}
+		for (var n =0;n < sp.length;n++){
+			(function (n){
+				sp[n].onmousedown =function (){
+					clear(n);
+					j =n;
+				};
+			})(n);
+		}
+	</script>
+</body>
+</html>

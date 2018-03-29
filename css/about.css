@@ -1,0 +1,81 @@
+/*aboutme.html样式*/
+.info{
+	width:100%;
+	/*min-width:428px;*/
+	background-color:#5a5ae7;
+}
+.info .inleft{
+	float:left;
+	width:30%;	
+}
+.info .inleft img{
+	/*width:152px;
+	height:170px;*/
+	width:50%;
+	margin:30px auto 10px;
+	box-shadow:0 0 10px 2px #000 inset;
+}
+.info .inleft ul{
+	width:60%;
+	padding:0 10px;
+	margin:32px auto;
+	color:#cccccc;
+}
+.info .inleft li{
+	line-height:30px;
+	padding:2px;
+	margin-bottom:26px;
+	word-break:break-all;/*强制自动换行*/
+}
+.info .inleft span{
+	width:16%;
+	height:28px;
+	margin-right:6px;
+	float:left;
+	text-indent:100px;
+	border-radius:20px;
+	overflow:hidden;
+}
+.info .inleft .age{
+	background:#cccccc url('../images/age.png') no-repeat 44%/68%;
+}
+.info .inleft .phone{
+	background:#cccccc url('../images/phone.png') no-repeat 44%/68%;
+}
+.info .inleft .address{
+	background:#cccccc url('../images/address.png') no-repeat 44%/68%;
+}
+.info .inleft .printf{
+	background:#cccccc url('../images/printf.png') no-repeat 44%/68%;
+}
+.info .inright{
+	width:70%;
+	float:right;
+	background-color:#9bd0e0;
+}
+.info .inright .chance{
+	padding:20px;
+}
+.inright  .chance li{
+	margin-bottom:20px;
+}
+.inright .chance li h2{
+	padding:4px 0;
+}
+.inright .chance li h3{
+	padding:8px 0;
+	border-bottom:1px solid #cccccc;
+}
+.inright .chance li p{
+	margin-top:4px;
+}
+.inright .chance .workexp{
+	margin-bottom:10px;
+}
+.inright .chance .workexp li{
+	margin-bottom:4px;
+}
+.chance .workexp .roall{
+	list-style-type:initial;
+	margin-left:14px;
+}

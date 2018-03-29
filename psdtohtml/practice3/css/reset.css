@@ -1,0 +1,37 @@
+/* 清除默认边距*/
+body, div, h1, h2, h3, h4, h5, h6, a, p, img, ul, ol, li, input, form{
+	margin:0;
+	padding: 0;
+	font: Tahoma, Helvetica, Arial," \5b8b\4f53", sans-serif;
+}
+
+/**更改a标签默认样式**/
+a{
+	text-decoration: none;
+	display: block;
+	color: #000;
+}
+
+/**更改img标签默认样式**/
+img{
+	border-style: none;
+	display: block;
+}
+
+/**更改a标签默认样式**/
+ul, ol, li{
+	list-style-type:none;
+	display:block;
+}
+
+/**清除浮动**/
+.clearfloat{
+	zoom:1;
+}
+.clearfloat:after{
+	display:block;
+	height:0;
+	content:'';
+	visibility:hidden;
+	clear:both;
+}

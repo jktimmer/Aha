@@ -1,11 +1,13 @@
 /*---public-header => ---*/
 .public-header .musicbar{
 	position:absolute;
+	left:2%;
 }
 .public-header .container .logo{
 	position:relative;
 	float:left;
 	margin-left:16px;
+	color:#7380ad;
 }
 .public-header .container ul{
 	float:right;
@@ -18,7 +20,7 @@
 .container .column .toyoung{
 	position:relative;
 	font-size: 16px;
-	color:#fff;
+	color:#b1b1b1;
 }
 .container .logo h3:after, .container .column .toyoung:after{
 	position:absolute;
@@ -28,11 +30,11 @@
 	display:block;
 	margin:auto;
 	width:4px;
-	border:4px solid #f60;
-	border-right-color:#000;
-	border-bottom:2px dotted #000;
-	border-left-color:#000;
-	background:#000;
+	border:4px solid #4e4e4e;
+	border-right-color:#c9c9c9;
+	border-bottom:2px dotted #c9c9c9;
+	border-left-color:#c9c9c9;
+	background:#c9c9c9;
 	visibility: hidden;
 }
 .container .logo h3:after{
@@ -101,4 +103,102 @@
 	bottom:1px;left:1px;
 	width:270px;
 	border-radius:0 0 10px 10px;
+}
+/*public-body=> movebox*/
+.public-body .movebox{
+	position:relative;
+	width:100%;
+	height:300px;
+}
+
+/*public-body=> pages-list*/
+.public-body .pages-list{
+	position:relative;
+	width:100%;
+	min-width:428px;
+	margin:20px 16px 0 0;
+	padding-bottom:2px;
+	background-color:#f1f1f1;
+	border-radius:10px;
+	color:#555;
+}
+.public-body .pages-list .title{
+	padding:2px 12px;
+	border-bottom:2px solid #000;
+}
+.pages-list .title h2{
+	float:left;
+	line-height:30px;
+	font-size:21px;
+	
+}
+.pages-list .title span{
+	float:right;
+	line-height:30px;
+	height:22px;
+	margin-top:8px;
+}
+.public-body .pages-list .cont{
+	padding:10px;
+}
+.pages-list .cont li{
+	margin-bottom:10px;
+	border-bottom:1px solid #ccc;
+}
+.pages-list .cont h3{
+	margin:10px 0 2px 0;
+	padding:6px 0;
+}
+.pages-list .cont .cont-title{
+	display:inline-block;
+	font-size:18px;
+	font-weight:normal;
+	color:#555;
+}
+.pages-list .cont .main-des{
+	position:relative;
+}
+.cont .main-des a{
+	float:left;
+	width:28%;
+	height:140px;
+	margin-right:15px;
+	border-radius:5px;
+	overflow:hidden;
+}
+.main-des .hov img{
+	width:100%;
+	height:100%;
+	transform:scale(1);
+	transition:transform 1s;
+}
+.main-des .hov:hover img{
+	transform:scale(1.2);
+}
+.cont .main-des p{
+	line-height:26px;
+}
+.pages-list .cont .tag{
+	width:100%;
+	margin:18px 0 2px 0; 
+	font-size:12px;
+	overflow:hidden;
+}
+.cont .tag i{
+	position:relative;
+	float:left;
+	padding-left:26px;
+	background:url('../images/time.png') 6px/17px no-repeat;
+}
+
+.cont .tag a{
+	float:right;
+}
+
+
+/*----public-footer----*/
+.public-footer .container{
+	text-align:center;
+	line-height:46px;
+	color:#378499;
 }

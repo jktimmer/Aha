@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content='text/html' charset="UTF-8" width="device-width">
+  	<meta name="Generator" content="Sublime text3®">
+  	<meta name="Author" content="Jktime">
+  	<meta name="Keywords" content="learning beginner">
+  	<meta name="Description" content="study html css">
+  	<title>这事儿不简单</title>
+  	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="icons/pandao.ico">
+  	<link rel="stylesheet" type="text/css" href="css/reset.css">
+  	<link rel="stylesheet" type="text/css" href="css/common.css">
+  	<link rel="stylesheet" type="text/css" href="css/tylog.css">
+  	<link rel="stylesheet" type="text/css" href="css/chat.css">
+  	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  	<script type="text/javascript" src="js/requestdata.js"></script>
+</head>
+<body>
+	<div class ="public-header clear">
+		<a class="musicbar"><img src="images/musicbar.png" height="44"></a>
+		<div class="container ">
+			<a href="" class="logo"><h3>A Beginner</h3></a>
+			<ul class="column">
+				<li><a class="toyoung" href="index.html">首页</a></li>
+				<li><a class="toyoung" href="aboutme.html">关于我</a></li>
+				<li><a class="toyoung" href="learning.html">学习之路</a></li>
+				<li><a class="toyoung" href="mailto:1277139516@qq.com">邮箱</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="musicbox">
+		<div class="closeme"><img src="images/little.png" width="15" height="15">关闭我</div>
+		<i class="movebar"></i>
+		<form class="searchbar">
+			<input class="schtxt" type="text" placeholder="Lovely Music">
+			<input class="schbt" type="button" value="查找" onclick="getTxt()">
+		</form>
+		<div class="content">
+			<p class="micname"><p>
+			<p class="micname"><p>
+			<p class="micname"><p>
+			<p class="micname"><p>
+			<p class="micname"><p>
+			<p class="micname"><p>
+			<audio controls="controls" class="msplay">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+	</div>
+	<div class ="public-body container">
+		<div class="pages-list clear">
+			<div class="title clear">
+				<h2>Try It</h2>
+				<span>你有多努力,就有多幸运</span>
+			</div>
+			<ul class="cont">
+				
+			</ul>
+		</div>
+	</div>
+	<div class ="public-footer">
+		<p class="container">Design by Chen, Welcom To Visit</p>
+	</div>
+	<script type="text/javascript" src="js/mine.js"></script>
+	<script type="text/javascript" src="js/load.js"></script>
+	<script type="text/javascript">
+		//循环生成dom
+		var oul = ele.byTag('ul',2);
+		getDa();
+		function getDa(){
+			var req = new XMLHttpRequest(),data;
+			req.onreadystatechange =function (){
+				if (req.readyState === 4 && req.status === 200){
+					data = JSON.parse(req.responseText);
+					dlta(data);
+				}
+			}
+			req.open('get','./data.json',true);
+			req.send(null);
+		}
+		function dlta(source){
+			var doc = document.createDocumentFragment();
+			source.forEach(function(item,index){
+				var elet = document.createElement('li');
+				elet.className="clear";
+				elet.innerHTML =`${item.stylecss}<p style="float:right;width:60%;margin-top:10px">${item.content}</p>`;
+					doc.appendChild(elet);
+			});
+			oul.appendChild(doc);
+		}
+
+		//聊天机器人请求数据
+		function rtData(){
+			var req=new XMLHttpRequest(),sdata,hp = document.querySelector('.otwd').value;
+			createDom(hp,"sendp","icons/pandao.ico");
+			req.onreadystatechange =function (){
+				if (req.readyState === 4 && req.status === 200){
+					sdata = (JSON.parse(req.responseText).text);
+					createDom(sdata,"rbtsd","images/robot.png");
+					if(JSON.parse(req.responseText).url){
+						var url = JSON.parse(req.responseText).url;
+						createDom(url,"rbtsd","images/robot.png");
+					}
+					if(JSON.parse(req.responseText).list){
+						var list = JSON.parse(req.responseText).list,each;
+						for(var i=0;i<5;i++){
+							createDom((list[i].article + '<br>' + list[i].source + '<br>' + list[i].detailurl),"rbtsd","images/robot.png");
+						}
+					}
+				}
+			}
+			req.open('post', 'http://www.tuling123.com/openapi/api',true);
+			req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			//req.open('GET', 'http://47.92.5.198/',true);
+			req.send(`key=72c4b0da04b644959ad9f8e8a5da41b8&info=${hp}`);
+		}
+
+		//生成dom
+		function createDom(input,className,url){
+			var fhdv = document.querySelector('.chatscreen'),epd = document.createElement('div');
+			epd.className = className;
+			epd.innerHTML = `<img src="${url}">
+						<div class="trap">
+							<p>${input}</p>
+						</div>`;
+			fhdv.appendChild(epd);
+		}
+	</script>
+</body>
+</html>

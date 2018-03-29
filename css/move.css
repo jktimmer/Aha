@@ -1,0 +1,79 @@
+/*轮播图样式*/
+.movebox .pon{
+	position:absolute;
+	top:0;right:0;
+	bottom:0;left:0;
+	margin:auto;
+	width:100%;
+	height:280px;
+	background:#0fc;
+	border-radius:10px;
+	overflow:hidden;
+}
+.pon .imgbox{
+		position:relative;
+		width:100%;
+		min-width:;
+		height:100%;
+		margin:0 auto;
+}
+.pon .imgbox img{
+		position:absolute;
+		opacity:1;
+	}
+.pon .imgbox .dd{
+		opacity:1;
+		z-index:100;
+		transition:opacity 3s;
+	}
+	.pon .bar{
+		position:absolute;
+		right:0;left:0;
+		bottom:0;
+		width:112px;
+		padding:2px;
+		margin:0 auto;
+		z-index:100;
+	}
+	.pon .bar span{
+		display:block;
+		float:left;
+		width:30px;
+		height:20px;
+		margin:0 2px;
+		text-indent:10px;
+		line-height:20px;
+		border-radius:5px;
+		cursor:pointer;
+		transition:background-color 2s;
+	}
+	.bar .spbg{
+		background-color:rgba(255,102,0,0.8);
+	}
+	.pon .button{
+		position:absolute;
+		top:0;right:0;
+		bottom:0;left:0;
+		display:none;
+		width:100%;
+		height:50px;
+		margin:auto;
+		z-index:100;
+	}
+	.pon:hover .button{
+		display:block;
+	}
+	.pon .button a{
+		display:block;
+		width:30px;
+		height:50px;
+		background:rgba(12,12,12,0.2) url('../images/button.png') no-repeat;
+	}
+	.pon .button .lft-bar{
+		float:left;
+		background-position:8px;
+	}
+	.pon .button .rgt-bar{float:right;
+		background-position:-58px;
+	}
+

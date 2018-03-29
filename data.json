@@ -4,7 +4,7 @@
 		"href":"d",
 		"content":"通过跟着视频了解相关标签的作用,然后在网上下载psd模板,开始制作静态页面.利用Photoshop中的工具进行图像的加工,在结合html,css初步完成了页面的布局,再在各浏览器中打开调整页面兼容布局,再ie8之后的浏览器版本的兼容性对css基本友好,但是对某些css3样式却不太友好,还好现在的搜索引擎很强大,帮助了我不少.",
 		"date":"2018.3.27",
-		"stylecss":"<a href='' style='float:left'>点击我</a>"
+		"stylecss":"<a href='psdtohtml/practice2/index.html' style='float:left'>点击我</a>"
 		
 	},
 	{

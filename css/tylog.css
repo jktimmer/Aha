@@ -6,11 +6,68 @@
 .public-header .container .logo{
 	position:relative;
 	float:left;
-	margin-left:16px;
+	margin-left:20px;
 	color:#7380ad;
 }
-.public-header .container ul{
+/*设备宽度css*/
+.public-header .devicewd{
+	display:none;
+	position: absolute;
+    top: 46px;
+    z-index: 888;
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+    background: #4e4e4e;
+    border-radius: 0 0 6px 6px;
+    padding: 2px 0;
+}
+
+.public-header .devicewd li{
+	width:66%;
+	height:30px;
+	margin:0 auto;
+	border-bottom:1px solid #307526;
+	overflow:hidden;
+}
+.devicewd li:hover{
+	background-color:#cbcbcb;
+}
+.devicewd li a{
+	
+	color:#b1b1b1;
+}
+.public-header .container .devbtn:before{
+	display:block;
+	content:'';
+	width:30px;
+	height:5px;
+	margin-top:-7px;
+	background-color: #f06;
+}
+.public-header .container .devbtn{
+   	position: relative; 
+  	width: 30px;
+    height: 5px;
+    float: right;
+    margin-top: 23px;
+    background-color: #f06;
+    
+}
+.public-header .container .devbtn:after{
+	display:block;
+	content:'';
+	width:30px;
+	height:5px;
+	margin-top:9px;
+	 background-color: #f06;
+}
+
+
+/*常规宽度*/
+.public-header .container .column{
 	float:right;
+	text-align:center;
 }
 .container .column li{
 	float:left;
@@ -22,7 +79,7 @@
 	font-size: 16px;
 	color:#b1b1b1;
 }
-.container .logo h3:after, .container .column .toyoung:after{
+.container .column .toyoung:after{
 	position:absolute;
 	bottom:0;left:0;
 	right:0;
@@ -36,9 +93,6 @@
 	border-left-color:#c9c9c9;
 	background:#c9c9c9;
 	visibility: hidden;
-}
-.container .logo h3:after{
-
 }
 .container .logo:hover h3:after, .container .column li:hover .toyoung:after{
 	visibility: visible;
@@ -115,7 +169,7 @@
 .public-body .pages-list{
 	position:relative;
 	width:100%;
-	min-width:428px;
+	/*min-width:428px;*/
 	margin:20px 16px 0 0;
 	padding-bottom:2px;
 	background-color:#f1f1f1;

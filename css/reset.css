@@ -1,5 +1,5 @@
 /*---重置样式---*/
-body, div, a, ul, ol, img, p, h1, h2, h3, h4, form, button, input, textarea, th, td{margin:0;padding:0;}
+body, div, a, ul, ol, img, p, h1, h2, h3, h4, form, button, input, textarea, th, td, span{margin:0;padding:0;}
 body{font-size:15px;background-color:#cbcbcb}
 a{display:block;text-decoration:none;}
 ul, ol{list-style-type:none;}

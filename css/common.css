@@ -1,6 +1,20 @@
+/*当浏览器宽度小于550px的时候.column的display为none*/
+@media screen and (max-width:550px)
+{
+	.public-header  .container .column{
+		display:none;
+	}
+}
+/*当浏览器宽度大于550px的时候.column的display为none*/
+@media screen and (min-width:549px)
+{
+	.public-header .container .devbtn{
+		display:none;
+	}
+}
+
 /*body*/
 body{
-	min-width:428px;
 	overflow-x:hidden;
 }
 
@@ -19,14 +33,13 @@ body{
 /*container*/
 .container{
 	width:80%;
-	min-width:428px;
+	/*min-width:428px;*/
 	margin:0 auto;
 }
 
 /*public-header*/
 .public-header{
 	width:100%;
-	min-width:492px;
 	line-height: 46px;
 	background-color:#4e4e4e;
 }
@@ -59,4 +72,5 @@ body{
 	height:46px;
 	background-color:#4e4e4e;
 	margin-top:12px;
+	overflow:hidden;
 }

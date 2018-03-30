@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content='text/html' charset="UTF-8" width="device-width">
-  	<meta name="Generator" content="Sublime text3®">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   	<meta name="Author" content="Jktime">
   	<meta name="Keywords" content="learning beginner">
   	<meta name="Description" content="study html css">
@@ -14,12 +14,27 @@
   	<link rel="stylesheet" type="text/css" href="css/about.css">
   	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   	<script type="text/javascript" src="js/requestdata.js"></script>
+  	<script type="text/javascript">
+  		window.onload = function(){
+  			var devbn = document.querySelector('.devbtn'),odev = document.getElementsByTagName('ul')[0],odp = odev.style;
+  			devbn.onclick = function(){
+  				odev.style.display = odp.display == 'block' ? 'none' : 'block';
+  			}
+  		}
+  	</script>
 </head>
 <body>
 	<div class ="public-header clear">
 		<a class="musicbar"><img src="images/musicbar.png" height="44"></a>
+		<ul class="devicewd">
+				<li><a class="younger" href="index.html">首页</a></li>
+				<li><a class="toyounger" href="aboutme.html">关于我</a></li>
+				<li><a class="younger" href="learning.html">学习之路</a></li>
+				<li><a class="younger" href="mailto:1277139516@qq.com">邮箱</a></li>
+		</ul>
 		<div class="container ">
 			<a href="" class="logo"><h3>A Beginner</h3></a>
+			<div class="devbtn"></div>
 			<ul class="column">
 				<li><a class="toyoung" href="index.html">首页</a></li>
 				<li><a class="toyoung" href="aboutme.html">关于我</a></li>

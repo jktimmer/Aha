@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content='text/html' charset="UTF-8" width="device-width">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   	<meta name="Author" content="Jktime">
   	<meta name="Keywords" content="learning beginner">
   	<meta name="Description" content="study html css">
@@ -98,7 +98,7 @@
 			source.forEach(function(item,index){
 				var elet = document.createElement('li');
 				elet.className="clear";
-				elet.innerHTML =`${item.stylecss}<p style="float:right;margin-top:10px">${item.content}</p>`;
+				elet.innerHTML =`${item.stylecss}<p style="margin-top:10px">${item.content}</p>`;
 					doc.appendChild(elet);
 			});
 			oul.appendChild(doc);
@@ -106,45 +106,36 @@
 
 		//聊天机器人请求数据
 		function rtData(){
-			var req=new XMLHttpRequest(),sdata,hp = document.querySelector('.otwd').value;
+			var req=new XMLHttpRequest(),hp = document.querySelector('.otwd').value, sdata, sda;
 			createDom(hp,"sendp","icons/pandao.ico");
 			req.onreadystatechange =function (){
 				if (req.readyState === 4 && req.status === 200){
 					sdata = (JSON.parse(req.responseText).text);
+					sda = JSON.parse(req.responseText);
 					createDom(sdata,"rbtsd","images/robot.png");
-					if(JSON.parse(req.responseText).url){
-						var url = JSON.parse(req.responseText).url;
+					if(sda.url){
+						var url = sda.url;
 						createDom(url,"rbtsd","images/robot.png");
 					}
-					if(JSON.parse(req.responseText).list){
-						var list = JSON.parse(req.responseText).list,each;
+					if(sda.list){
+						var list = sda.list,each;
 						for(var i=0;i<5;i++){
-							createDom((list[i].article + '<br>' + list[i].source + '<br>' + list[i].detailurl),"rbtsd","images/robot.png");
+							createDom(((i + 1) + ': '+ list[i].article + '<br>' + list[i].detailurl),"rbtsd","images/robot.png");
 						}
 					}
 				}
 			}
-			req.open('post', 'http://openapi.tuling123.com/openapi/api/v2',true);
+			req.open('post', 'http://www.tuling123.com/openapi/api',true);
 			req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			//`key=72c4b0da04b644959ad9f8e8a5da41b8&info=${hp}`
 			//req.open('GET', 'http://47.92.5.198/',true);
-			req.send(`
-				{"perception":"${hp}",
-					"userInfo":{
-						"apiKey":"72c4b0da04b644959ad9f8e8a5da41b8"
-					}
-				}`
-			);
+			req.send(`key=72c4b0da04b644959ad9f8e8a5da41b8&info=${hp}`);
 		}
 
 		//生成dom
 		function createDom(input,className,url){
 			var fhdv = document.querySelector('.chatscreen'),epd = document.createElement('div');
 			epd.className = className;
-			epd.innerHTML = `<img src="${url}">
-						<div class="trap">
-							<p>${input}</p>
-						</div>`;
+			epd.innerHTML = `<img src="${url}"><div class="trap"><p>${input}</p></div>`;
 			fhdv.appendChild(epd);
 		}
 	</script>

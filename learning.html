@@ -110,18 +110,38 @@
 			createDom(hp,"sendp","icons/pandao.ico");
 			req.onreadystatechange =function (){
 				if (req.readyState === 4 && req.status === 200){
-					sdata = (JSON.parse(req.responseText).text);
-					createDom(sdata,"rbtsd","images/robot.png");
-					if(JSON.parse(req.responseText).url){
-						var url = JSON.parse(req.responseText).url;
-						createDom(url,"rbtsd","images/robot.png");
-					}
-					if(JSON.parse(req.responseText).list){
-						var list = JSON.parse(req.responseText).list,each;
-						for(var i=0;i<5;i++){
-							createDom((list[i].article + '<br>' + list[i].source + '<br>' + list[i].detailurl),"rbtsd","images/robot.png");
+					sdata = JSON.parse(req.responseText);
+					try {
+						if(sdata.intent.code != "10005"){
+							createDom("error",'rbtsd',"images/robot.png");
+							return;
+						};
+						var results = sdata.results;
+						createDom(sdata,"rbtsd","images/robot.png");
+					
+						if(result != null && results.length > 0){
+							for(var i=0;i<results.length;i++){
+								var text = results[i].values.text;
+								var url = results[i].values.url;
+								var realText = url ? text + '<br>' + url : text;
+								createDom(realText,"rbtsd","images/robot.png");
+							}		
 						}
+					
+					} catch (error) {
+						console.log(`something were error ==>${error}`);
 					}
+					
+					// if(JSON.parse(req.responseText).url){
+					// 	var url = sdata.value.url;
+					// 	createDom(url,"rbtsd","images/robot.png");
+					// }
+					// if(JSON.parse(req.responseText).list){
+					// 	var list = JSON.parse(req.responseText).list,each;
+					// 	for(var i=0;i<5;i++){
+					// 		createDom((list[i].article + '<br>' + list[i].source + '<br>' + list[i].detailurl),"rbtsd","images/robot.png");
+					// 	}
+					// }
 				}
 			}
 			req.open('post', 'https://openapi.tuling123.com/openapi/api/v2',true);
@@ -129,9 +149,16 @@
 			//`key=72c4b0da04b644959ad9f8e8a5da41b8&info=${hp}`
 			//req.open('GET', 'http://47.92.5.198/',true);
 			req.send(`
-				{"perception":"${hp}",
+				{
+					"reqType":0,
+					"perception":{
+						"inputText": {
+							"text": "${hp}"
+						},
+					},
 					"userInfo":{
-						"apiKey":"72c4b0da04b644959ad9f8e8a5da41b8"
+						"apiKey":"72c4b0da04b644959ad9f8e8a5da41b8",
+						"userId":"600d4d785f012161"
 					}
 				}`
 			);

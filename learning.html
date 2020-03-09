@@ -124,10 +124,17 @@
 					}
 				}
 			}
-			req.open('post', 'https://www.tuling123.com/openapi/api',true);
+			req.open('post', 'http://openapi.tuling123.com/openapi/api/v2',true);
 			req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			//`key=72c4b0da04b644959ad9f8e8a5da41b8&info=${hp}`
 			//req.open('GET', 'http://47.92.5.198/',true);
-			req.send(`key=72c4b0da04b644959ad9f8e8a5da41b8&info=${hp}`);
+			req.send(`
+				{"perception":"${hp}",
+					"userInfo":{
+						"apiKey":"72c4b0da04b644959ad9f8e8a5da41b8"
+					}
+				}`
+			);
 		}
 
 		//生成dom
